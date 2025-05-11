@@ -8,3 +8,7 @@ def hello(name: str) -> None:
     
     # 輸出問候語句和目前時間的訊息
     print(f"Hello {name}，現在是時間是 {now}")
+
+    """
+    來自 main 的註解
+    """
