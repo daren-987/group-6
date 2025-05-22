@@ -1,0 +1,14 @@
+FROM ubuntu
+
+# 安裝編譯需要用到的套件
+RUN apt update && \
+    apt install build-essential -yqq
+
+# 將原始碼複製到容器中
+COPY . /
+
+# 編譯 C++程式碼的指令
+# 執行檔為 main
+RUN g++ -Wall -o /main /main.cpp
+
+CMD ["/main"]

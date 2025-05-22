@@ -1,0 +1,15 @@
+FROM ubuntu AS builder
+
+RUN apt update && \
+    apt install build-essential -yqq
+
+COPY . /
+RUN g++ -Wall -o /main /main.cpp
+
+FROM ubuntu
+
+WORKDIR /root/
+#從第一個iamge複製編譯完成的執行檔
+COPY --from=builder /main ./
+
+CMD ["./main"]
